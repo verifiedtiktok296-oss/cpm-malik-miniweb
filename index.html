@@ -1,0 +1,298 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#170d27">
+<title>CPM MALIK OFFICIAL 🎀</title>
+<style>
+:root {
+  --bg:#170d27;
+  --panel:#28183d;
+  --card:#35214f;
+  --accent:#b98af7;
+  --text:#f7f0ff;
+  --muted:#c5b3d8;
+}
+* { box-sizing:border-box; }
+body {
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:Arial,sans-serif;
+}
+header {
+  padding:18px 16px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  border-bottom:1px solid #49345e;
+}
+#avatar {
+  width:48px;height:48px;border-radius:50%;
+  object-fit:cover;background:var(--card);
+  border:2px solid var(--accent);
+}
+.brand { font-size:17px;font-weight:800; }
+.subtitle { color:var(--muted);font-size:12px;margin-top:5px; }
+main { max-width:620px;margin:auto;padding:16px; }
+.banner {
+  height:170px;border-radius:18px;
+  background:linear-gradient(135deg,#4a2870,#211331);
+  border:1px solid #614180;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  overflow:hidden;position:relative;
+}
+#carPhoto {
+  position:absolute;width:100%;height:100%;
+  object-fit:cover;display:none;
+}
+.banner-content { text-align:center;z-index:1; }
+.banner h2 { margin:0 0 8px; }
+button,.upload-label {
+  border:0;border-radius:10px;padding:12px 14px;
+  background:var(--accent);color:#211331;
+  font-weight:bold;cursor:pointer;font-size:14px;
+}
+.upload-label { display:inline-block;margin:4px; }
+.upload-label input { display:none; }
+.section-title { margin:25px 0 14px;font-size:20px; }
+.grid { display:grid;grid-template-columns:1fr 1fr;gap:12px; }
+.tile {
+  background:var(--card);border:1px solid #4d3665;
+  padding:18px 14px;border-radius:15px;
+  cursor:pointer;min-height:100px;
+}
+.tile .emoji { font-size:25px;display:block;margin-bottom:10px; }
+.tile strong { font-size:15px; }
+.tile p { color:var(--muted);font-size:12px;margin:7px 0 0; }
+.panel {
+  background:var(--panel);padding:16px;
+  border-radius:15px;margin-top:16px;
+}
+.hidden { display:none!important; }
+.item {
+  background:var(--card);padding:14px;
+  border-radius:10px;margin:9px 0;
+  display:flex;align-items:center;justify-content:space-between;
+  gap:10px;
+}
+.item button { padding:9px 12px; }
+.price { color:var(--accent);font-weight:bold;font-size:20px; }
+nav {
+  position:sticky;bottom:0;
+  background:#211431;border-top:1px solid #49345e;
+  display:flex;justify-content:space-around;
+  padding:10px 2px;
+}
+nav button {
+  background:transparent;color:var(--muted);
+  padding:8px 6px;font-size:12px;
+}
+nav button.active { color:var(--accent); }
+.note { color:var(--muted);font-size:12px;line-height:1.6; }
+footer { text-align:center;color:var(--muted);padding:20px;font-size:12px; }
+@media(max-width:360px) {
+  .brand {font-size:14px;}
+  .grid {gap:8px;}
+  .tile {padding:14px 10px;}
+}
+</style>
+</head>
+<body>
+<header>
+  <img id="avatar" alt="Profile photo">
+  <div>
+    <div class="brand">CPM MALIK OFFICIAL 🎀</div>
+    <div class="subtitle">Premium Services Dashboard</div>
+  </div>
+</header>
+
+<main>
+  <section id="homePage">
+    <div class="panel" style="margin-top:0">
+      <label class="upload-label">
+        🖼️ Choose Profile Photo
+        <input type="file" accept="image/*" id="avatarInput">
+      </label>
+    </div>
+
+    <div class="banner" style="margin-top:14px">
+      <img id="carPhoto" alt="Your car banner">
+      <div class="banner-content">
+        <h2>🏎️ Your Car Banner</h2>
+        <label class="upload-label">
+          Choose Car Photo
+          <input type="file" accept="image/*" id="carInput">
+        </label>
+      </div>
+    </div>
+
+    <h2 class="section-title">Choose Your Service</h2>
+    <div class="grid">
+      <div class="tile" onclick="showCategory('Account')">
+        <span class="emoji">👤</span><strong>Account</strong>
+        <p>Account services</p>
+      </div>
+      <div class="tile" onclick="showCategory('Economy')">
+        <span class="emoji">🪙</span><strong>Economy</strong>
+        <p>Money and coins</p>
+      </div>
+      <div class="tile" onclick="showCategory('Unlock')">
+        <span class="emoji">🔓</span><strong>Unlock</strong>
+        <p>Unlock services</p>
+      </div>
+      <div class="tile" onclick="showPlans()">
+        <span class="emoji">💎</span><strong>Plans</strong>
+        <p>View subscriptions</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="servicesPage" class="hidden">
+    <button onclick="goHome()">← Back Home</button>
+    <h2 class="section-title" id="categoryTitle">Services</h2>
+    <div id="serviceList"></div>
+    <p class="note">Demo only: service requests are not connected to a backend yet.</p>
+  </section>
+
+  <section id="plansPage" class="hidden">
+    <button onclick="goHome()">← Back Home</button>
+    <h2 class="section-title">💎 Choose Your Plan</h2>
+    <div class="item">
+      <div><strong>1 Day</strong><p class="note">24-hour plan</p></div>
+      <span class="price">Rs. 300</span>
+    </div>
+    <div class="item">
+      <div><strong>1 Week</strong><p class="note">7-day plan</p></div>
+      <span class="price">Rs. 1,200</span>
+    </div>
+    <div class="item">
+      <div><strong>1 Month</strong><p class="note">30-day plan</p></div>
+      <span class="price">Rs. 2,000</span>
+    </div>
+    <div class="panel">
+      <p class="note">Choose a plan to continue. Payments and subscription activation will be connected after backend setup.</p>
+      <button style="width:100%" onclick="alert('Payment system abhi setup nahi hua.')">Continue to Payment</button>
+    </div>
+  </section>
+
+  <section id="settingsPage" class="hidden">
+    <button onclick="goHome()">← Back Home</button>
+    <h2 class="section-title">Settings</h2>
+    <div class="panel">
+      <strong>CPM MALIK OFFICIAL 🎀</strong>
+      <p class="note">Purple premium theme</p>
+      <p class="note">Gallery photo previews are available on this device. Photos are not uploaded to a server.</p>
+    </div>
+  </section>
+</main>
+
+<nav>
+  <button class="active" onclick="goHome()">⌂<br>Home</button>
+  <button onclick="refreshPage()">↻<br>Refresh</button>
+  <button onclick="contactOwner()">♡<br>Support</button>
+  <button onclick="logoutDemo()">⇥<br>Logout</button>
+</nav>
+
+<footer>CPM MALIK OFFICIAL 🎀<br>Premium Services</footer>
+
+<script>
+const services = {
+  Account: [
+    "Gmail Change",
+    "Password Changed",
+    "ID Name Changed",
+    "Account Name Change"
+  ],
+  Economy: [
+    "50M Money",
+    "500k Coin",
+    "Custom Money",
+    "Custom Coins",
+    "Race Wins",
+    "Race Loss"
+  ],
+  Unlock: [
+    "W16 Engine Unlock",
+    "Smoke Unlock",
+    "Unlimited Fuel",
+    "Horn Unlock",
+    "Animation Unlock",
+    "Paid Wheels Unlock",
+    "Paid House Unlock",
+    "All Levels",
+    "No Damage"
+  ]
+};
+
+function hidePages() {
+  ["homePage","servicesPage","plansPage","settingsPage"].forEach(id => {
+    document.getElementById(id).classList.add("hidden");
+  });
+}
+function goHome() {
+  hidePages();
+  document.getElementById("homePage").classList.remove("hidden");
+  window.scrollTo(0,0);
+}
+function showCategory(category) {
+  hidePages();
+  document.getElementById("servicesPage").classList.remove("hidden");
+  document.getElementById("categoryTitle").textContent = category + " Services";
+  const list = document.getElementById("serviceList");
+  list.replaceChildren();
+  services[category].forEach(service => {
+    const row = document.createElement("div");
+    row.className = "item";
+    const name = document.createElement("strong");
+    name.textContent = service;
+    const button = document.createElement("button");
+    button.textContent = "Select";
+    button.onclick = () => alert(service + " selected. Real service is not connected yet.");
+    row.append(name,button);
+    list.appendChild(row);
+  });
+  window.scrollTo(0,0);
+}
+function showPlans() {
+  hidePages();
+  document.getElementById("plansPage").classList.remove("hidden");
+  window.scrollTo(0,0);
+}
+function refreshPage() {
+  goHome();
+  alert("Demo refreshed!");
+}
+function contactOwner() {
+  window.open("https://t.me/cpm_malik_official","_blank");
+}
+function logoutDemo() {
+  alert("Demo only: login/logout system abhi connected nahi hai.");
+}
+function showImage(inputId,imageId) {
+  document.getElementById(inputId).addEventListener("change",event => {
+    const file = event.target.files[0];
+    if (!file) return;
+    if (!file.type.startsWith("image/")) {
+      alert("Please select an image.");
+      return;
+    }
+    const url = URL.createObjectURL(file);
+    const image = document.getElementById(imageId);
+    image.src = url;
+    image.style.display = "block";
+    if (imageId === "carPhoto") {
+      document.querySelector(".banner-content").style.background = "#170d27bb";
+      document.querySelector(".banner-content").style.padding = "10px";
+      document.querySelector(".banner-content").style.borderRadius = "12px";
+    }
+  });
+}
+showImage("avatarInput","avatar");
+showImage("carInput","carPhoto");
+</script>
+</body>
+</html>
