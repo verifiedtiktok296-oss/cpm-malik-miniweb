@@ -3,425 +3,273 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#170d27">
+<meta name="theme-color" content="#170d24">
 <title>CPM MALIK OFFICIAL 🎀</title>
-
 <style>
 :root {
-  --bg:#170d27;
-  --panel:#28183d;
-  --card:#35214f;
-  --accent:#c29aff;
-  --text:#fff8ff;
-  --muted:#d0bfdf;
+  --bg:#100919;
+  --panel:#211431;
+  --line:#503866;
+  --purple:#a855f7;
+  --muted:#c2b1d2;
+  --white:#fff;
 }
 * { box-sizing:border-box; }
+html { scroll-behavior:smooth; }
 body {
   margin:0;
-  background:var(--bg);
-  color:var(--text);
+  background:radial-gradient(circle at top,#32184a,var(--bg) 55%);
+  color:var(--white);
   font-family:Arial,sans-serif;
 }
+button,input { font:inherit; }
+button { cursor:pointer; }
+.wrap { max-width:900px;margin:auto;padding:16px 13px 100px; }
 header {
-  padding:16px;
-  display:flex;
-  align-items:center;
-  gap:12px;
-  background:var(--panel);
-  border-bottom:1px solid #4b3562;
+  display:flex;justify-content:space-between;
+  align-items:center;gap:10px;padding:8px 0 20px;
 }
-#avatar {
-  width:56px;
-  height:56px;
-  object-fit:cover;
-  border-radius:50%;
-  border:2px solid var(--accent);
-  background:var(--card);
+.brand { font-size:16px;font-weight:900; }
+.brand small { display:block;color:var(--muted);font-size:11px;margin-top:5px; }
+.pill { background:var(--panel);border:1px solid var(--line);padding:8px;border-radius:20px;font-size:11px;color:#e9d5ff; }
+.hero {
+  padding:23px 18px;border:1px solid #68458a;border-radius:20px;
+  background:linear-gradient(135deg,#42245b,#1b1028);
+  box-shadow:0 10px 30px #0004;
 }
-.brand { font-weight:800;font-size:17px; }
-.subtitle { color:var(--muted);font-size:12px;margin-top:5px; }
-main { max-width:650px;margin:auto;padding:16px 14px 25px; }
-.panel {
-  background:var(--panel);
-  padding:16px;
-  border-radius:16px;
-  margin-bottom:15px;
+.eyebrow { color:#d8b4fe;font-size:11px;letter-spacing:2px;font-weight:bold; }
+h1 { font-size:30px;line-height:1.2;margin:12px 0; }
+p { color:var(--muted);font-size:13px;line-height:1.6; }
+.actions { display:flex;gap:9px;flex-wrap:wrap;margin-top:16px; }
+.btn {
+  border:0;border-radius:11px;padding:12px 15px;
+  background:linear-gradient(135deg,#a855f7,#7134a4);
+  color:white;font-weight:bold;
 }
-button,.upload {
-  border:0;
-  border-radius:11px;
-  padding:13px 15px;
-  background:var(--accent);
-  color:#20112e;
-  font-size:14px;
-  font-weight:700;
-  cursor:pointer;
+.btn.secondary { background:#251733;border:1px solid var(--line); }
+.section { margin-top:25px;scroll-margin-top:12px; }
+.heading { display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;gap:8px; }
+h2 { font-size:19px;margin:0; }
+.small { color:var(--muted);font-size:11px; }
+.grid { display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px; }
+.card { min-width:0;padding:14px;border:1px solid var(--line);border-radius:15px;background:linear-gradient(145deg,#251733,#180e23); }
+h3 { font-size:15px;margin:0 0 12px; }
+.service {
+  display:flex;justify-content:space-between;align-items:center;gap:6px;
+  background:#2b1b3b;border:1px solid #402951;border-radius:10px;
+  padding:10px;margin-top:8px;font-size:12px;
 }
-button:active { transform:scale(.98); }
-.upload { display:inline-block;margin-top:8px; }
-.upload input { display:none; }
-.banner {
-  height:190px;
-  border-radius:17px;
-  overflow:hidden;
-  position:relative;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  background:linear-gradient(135deg,#613b85,#241433);
-  border:1px solid #77519a;
+.service span { overflow-wrap:anywhere; }
+.service button {
+  flex-shrink:0;background:#482663;color:#f0dfff;
+  border:1px solid #704a90;border-radius:7px;padding:7px;font-size:10px;
 }
-#carPhoto {
-  position:absolute;
-  inset:0;
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  display:none;
-}
-.banner-content {
-  z-index:1;
-  padding:14px;
-  border-radius:12px;
-}
-.banner h2 { margin:0 0 8px;font-size:21px; }
-h2.section-title { font-size:21px;margin:23px 0 14px; }
-.grid {
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:12px;
-}
-.tile {
-  padding:19px 15px;
-  border:1px solid #503866;
-  background:var(--card);
-  border-radius:15px;
-  min-height:116px;
-  cursor:pointer;
-}
-.tile .emoji { display:block;font-size:29px;margin-bottom:12px; }
-.tile strong { font-size:16px; }
-.tile p { font-size:13px;color:var(--muted);margin:7px 0 0; }
-.hidden { display:none!important; }
-.item {
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:12px;
-  background:var(--card);
-  padding:15px;
-  border-radius:12px;
-  margin:10px 0;
-}
-.item strong { font-size:14px; }
-.item button { padding:11px 13px;flex-shrink:0; }
-.price { color:var(--accent);font-size:18px;font-weight:bold; }
-.note { color:var(--muted);font-size:13px;line-height:1.6; }
-.secondary {
-  background:transparent;
-  color:var(--text);
-  border:1px solid #775a91;
-}
-.full { width:100%;margin-top:10px; }
-
-/* NEW PREMIUM PURPLE GAMING BOTTOM BUTTONS */
+.price { font-size:26px;font-weight:900;margin:14px 0 7px; }
+.feature { font-size:12px;color:#d8c7e8;line-height:1.6; }
+.full { width:100%;margin-top:14px; }
+.notice { padding:13px;border-radius:12px;border:1px solid #68458a;background:#211431;color:#dfcde9;font-size:12px;line-height:1.6;margin-top:13px; }
 nav {
-  position:sticky;
-  bottom:0;
-  z-index:5;
-  display:grid;
-  grid-template-columns:repeat(4,minmax(0,1fr));
-  gap:8px;
-  padding:12px 10px;
-  background:#1b1029;
-  border-top:1px solid #68458a;
+  position:fixed;left:0;right:0;bottom:0;z-index:10;
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:7px;
+  padding:10px; background:#170d24f5;border-top:1px solid #68458a;
   box-shadow:0 -5px 22px #a855f722;
 }
 nav button {
-  background:linear-gradient(145deg,#302044,#241532);
-  color:var(--muted);
-  border:1px solid #503866;
-  min-width:0;
-  min-height:70px;
-  padding:10px 2px;
-  font-size:13px;
-  font-weight:800;
-  line-height:1.5;
-  border-radius:16px;
-  transition:all .2s ease;
+  min-width:0;min-height:59px;padding:7px 2px;border-radius:13px;
+  color:var(--muted);background:linear-gradient(145deg,#302044,#241532);
+  border:1px solid var(--line);font-size:11px;font-weight:bold;
 }
 nav button.active {
-  color:#ffffff;
-  background:linear-gradient(145deg,#a855f7,#6930a0);
-  border:1px solid #d8b4fe;
-  box-shadow:0 0 16px #a855f777;
+  color:white;background:linear-gradient(145deg,#a855f7,#6930a0);
+  border-color:#d8b4fe;box-shadow:0 0 15px #a855f755;
 }
-nav button:active {
-  transform:scale(.94);
+.nav-icon { display:block;font-size:21px;margin-bottom:3px; }
+footer { text-align:center;color:var(--muted);font-size:11px;margin:25px 0; }
+#toast {
+  display:none;position:fixed;bottom:85px;left:50%;transform:translateX(-50%);
+  background:#302044;border:1px solid #8054a5;color:white;padding:12px;
+  border-radius:10px;font-size:12px;z-index:30;width:max-content;max-width:90%;
 }
-nav .nav-icon {
-  display:block;
-  font-size:25px;
-  margin-bottom:3px;
+.modal-bg {
+  display:none;position:fixed;inset:0;background:#000b;z-index:20;
+  align-items:center;justify-content:center;padding:18px;
 }
-footer {
-  padding:20px 10px;
-  color:var(--muted);
-  text-align:center;
-  font-size:12px;
-}
-@media(max-width:360px) {
-  .brand { font-size:14px; }
-  nav button { font-size:11px; }
-  nav .nav-icon { font-size:22px; }
-  .grid { gap:8px; }
-  .tile { padding:14px 10px; }
-}
+.modal-bg.show { display:flex; }
+.modal { width:100%;max-width:400px;padding:20px;border:1px solid #68458a;border-radius:17px;background:#1b1028; }
+.modal input { width:100%;padding:12px;margin-top:10px;border-radius:9px;border:1px solid var(--line);background:#100919;color:white; }
+.close { float:right;background:none;color:white;border:0;font-size:22px; }
+@media(min-width:650px) { .grid { grid-template-columns:repeat(3,minmax(0,1fr)); } h1 { font-size:37px; } }
+@media(max-width:360px) { .brand { font-size:13px; } h1 { font-size:25px; } .grid { gap:7px; } .card { padding:10px; } nav button { font-size:10px; } }
 </style>
 </head>
-
 <body>
+<div class="wrap">
 <header>
-  <img id="avatar" alt="Your profile photo">
-  <div>
-    <div class="brand">CPM MALIK OFFICIAL 🎀</div>
-    <div class="subtitle">Premium Services Dashboard</div>
+  <div class="brand">
+    𝐂𝐏𝐌 𝐌𝐀𝐋𝐈𝐊 𝐎𝐅𝐅𝐈𝐂𝐈𝐀𝐋 🎀
+    <small>Premium Car Parking Multiplayer Services</small>
   </div>
+  <span class="pill">✦ PREMIUM</span>
 </header>
 
 <main>
-  <section id="homePage">
-    <div class="panel">
-      <strong>Your Profile Photo</strong><br>
-      <label class="upload">
-        🖼️ Choose from Gallery
-        <input type="file" id="avatarInput" accept="image/*">
-      </label>
+<section id="home" class="hero">
+  <div class="eyebrow">WELCOME TO CPM MALIK</div>
+  <h1>Your premium journey<br>starts here.</h1>
+  <p>Explore services, choose your subscription plan and contact the owner for assistance.</p>
+  <div class="actions">
+    <button class="btn" onclick="go('plans')">💎 View Plans</button>
+    <button class="btn secondary" onclick="support()">💭 Contact Owner</button>
+  </div>
+</section>
+
+<section class="section" id="services">
+  <div class="heading"><h2>Services</h2><span class="small">Select to enquire</span></div>
+  <div class="grid">
+    <div class="card">
+      <h3>👤 Account</h3>
+      <div class="service"><span>Gmail Change</span><button onclick="order('Gmail Change')">Enquire</button></div>
+      <div class="service"><span>Password Changed</span><button onclick="order('Password Changed')">Enquire</button></div>
+      <div class="service"><span>ID Name Changed</span><button onclick="order('ID Name Changed')">Enquire</button></div>
+      <div class="service"><span>Account Name Change</span><button onclick="order('Account Name Change')">Enquire</button></div>
     </div>
 
-    <div class="banner">
-      <img id="carPhoto" alt="Your selected car photo">
-      <div class="banner-content">
-        <h2>🏎️ Your Car Banner</h2>
-        <div class="note">Add your own car photo</div>
-        <label class="upload">
-          📸 Choose Car Photo
-          <input type="file" id="carInput" accept="image/*">
-        </label>
-      </div>
+    <div class="card">
+      <h3>💰 Economy</h3>
+      <div class="service"><span>50M Money</span><button onclick="order('50M Money')">Enquire</button></div>
+      <div class="service"><span>500k Coin</span><button onclick="order('500k Coin')">Enquire</button></div>
+      <div class="service"><span>Custom Money</span><button onclick="order('Custom Money')">Enquire</button></div>
+      <div class="service"><span>Custom Coins</span><button onclick="order('Custom Coins')">Enquire</button></div>
+      <div class="service"><span>Race Wins</span><button onclick="order('Race Wins')">Enquire</button></div>
+      <div class="service"><span>Race Loss</span><button onclick="order('Race Loss')">Enquire</button></div>
     </div>
 
-    <h2 class="section-title">Choose Your Service</h2>
-    <div class="grid">
-      <div class="tile" onclick="showCategory('Account')">
-        <span class="emoji">👤</span>
-        <strong>Account</strong>
-        <p>Account services</p>
-      </div>
-      <div class="tile" onclick="showCategory('Economy')">
-        <span class="emoji">🪙</span>
-        <strong>Economy</strong>
-        <p>Money and coins</p>
-      </div>
-      <div class="tile" onclick="showCategory('Unlock')">
-        <span class="emoji">🔓</span>
-        <strong>Unlock</strong>
-        <p>Unlock services</p>
-      </div>
-      <div class="tile" onclick="showPlans()">
-        <span class="emoji">💎</span>
-        <strong>Plans</strong>
-        <p>Subscription plans</p>
-      </div>
+    <div class="card">
+      <h3>🔓 Unlock</h3>
+      <div class="service"><span>W16 Engine Unlock</span><button onclick="order('W16 Engine Unlock')">Enquire</button></div>
+      <div class="service"><span>Smoke Unlock</span><button onclick="order('Smoke Unlock')">Enquire</button></div>
+      <div class="service"><span>Unlimited Fuel</span><button onclick="order('Unlimited Fuel')">Enquire</button></div>
+      <div class="service"><span>Horn Unlock</span><button onclick="order('Horn Unlock')">Enquire</button></div>
+      <div class="service"><span>Animation Unlock</span><button onclick="order('Animation Unlock')">Enquire</button></div>
+      <div class="service"><span>Paid Wheels Unlock</span><button onclick="order('Paid Wheels Unlock')">Enquire</button></div>
+      <div class="service"><span>Paid House Unlock</span><button onclick="order('Paid House Unlock')">Enquire</button></div>
+      <div class="service"><span>All Levels</span><button onclick="order('All Levels')">Enquire</button></div>
+      <div class="service"><span>No Damage</span><button onclick="order('No Damage')">Enquire</button></div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section id="servicesPage" class="hidden">
-    <button class="secondary" onclick="goHome()">← Back Home</button>
-    <h2 class="section-title" id="categoryTitle">Services</h2>
-    <div id="serviceList"></div>
-    <p class="note">Preview only. Real service execution is not connected yet.</p>
-  </section>
+<section class="section" id="plans">
+  <div class="heading"><h2>Subscription Plans</h2><span class="small">PKR</span></div>
+  <div class="grid">
+    <div class="card">
+      <h3>⚡ 1 Day</h3><div class="price">Rs. 300</div>
+      <div class="feature">✓ One-day subscription<br>✓ Owner approval required</div>
+      <button class="btn full" onclick="buy('1 Day','300')">Choose Plan</button>
+    </div>
+    <div class="card">
+      <h3>💎 1 Week</h3><div class="price">Rs. 1,200</div>
+      <div class="feature">✓ Seven-day subscription<br>✓ Owner approval required</div>
+      <button class="btn full" onclick="buy('1 Week','1200')">Choose Plan</button>
+    </div>
+    <div class="card">
+      <h3>👑 1 Month</h3><div class="price">Rs. 2,000</div>
+      <div class="feature">✓ Thirty-day subscription<br>✓ Owner approval required</div>
+      <button class="btn full" onclick="buy('1 Month','2000')">Choose Plan</button>
+    </div>
+  </div>
+  <div class="notice">
+    <b>JazzCash Manual Payment</b><br>
+    Contact the owner to confirm payment instructions. Send your payment proof to the owner for manual verification. Do not send money until payment details are confirmed directly by the owner.
+  </div>
+</section>
 
-  <section id="plansPage" class="hidden">
-    <button class="secondary" onclick="goHome()">← Back Home</button>
-    <h2 class="section-title">💎 Choose Your Plan</h2>
+<section class="section" id="account">
+  <div class="heading"><h2>Account</h2><span class="small">Login / Register</span></div>
+  <div class="card">
+    <h3>🔐 Your Account</h3>
+    <p>Login and registration need a secure backend before real accounts or subscriptions can be created.</p>
+    <div class="actions">
+      <button class="btn" onclick="openModal('login')">Login</button>
+      <button class="btn secondary" onclick="openModal('register')">Register</button>
+    </div>
+  </div>
+</section>
 
-    <div class="item">
-      <div><strong>1 Day</strong><p class="note">Daily access</p></div>
-      <span class="price">Rs. 300</span>
-    </div>
-    <div class="item">
-      <div><strong>1 Week</strong><p class="note">Weekly access</p></div>
-      <span class="price">Rs. 1,200</span>
-    </div>
-    <div class="item">
-      <div><strong>1 Month</strong><p class="note">Monthly access</p></div>
-      <span class="price">Rs. 2,000</span>
-    </div>
-
-    <div class="panel">
-      <p class="note">
-        Payment verification and automatic plan activation
-        are not connected yet.
-      </p>
-      <button class="full" onclick="paymentNotice()">Continue to Payment</button>
-    </div>
-  </section>
-
-  <section id="settingsPage" class="hidden">
-    <button class="secondary" onclick="goHome()">← Back Home</button>
-    <h2 class="section-title">Account</h2>
-    <div class="panel">
-      <strong>CPM MALIK OFFICIAL 🎀</strong>
-      <p class="note">Purple premium theme</p>
-      <p class="note">
-        Photos selected from your gallery are only previewed
-        in this browser. They are not uploaded to a server.
-      </p>
-    </div>
-  </section>
+<section class="section" id="settings">
+  <div class="heading"><h2>Settings & Support</h2></div>
+  <div class="card">
+    <h3>🎧 CPM MALIK Support</h3>
+    <p>For orders, subscription questions and payment verification, contact the official owner.</p>
+    <button class="btn" onclick="support()">Contact Owner</button>
+  </div>
+</section>
+<footer>© 2026 CPM MALIK OFFICIAL 🎀<br>Premium Services</footer>
 </main>
+</div>
 
-<!-- ONLY THE BOTTOM BUTTON DESIGN HAS CHANGED -->
 <nav>
-  <button class="active" onclick="goHome()" id="homeNav">
-    <span class="nav-icon">🏠</span>
-    Home
-  </button>
-  <button onclick="refreshPage()">
-    <span class="nav-icon">🔄</span>
-    Refresh
-  </button>
-  <button onclick="contactOwner()">
-    <span class="nav-icon">🎧</span>
-    Support
-  </button>
-  <button onclick="logoutDemo()">
-    <span class="nav-icon">🚪</span>
-    Logout
-  </button>
+  <button class="active" onclick="navGo('home',this)"><span class="nav-icon">🏠</span>Home</button>
+  <button onclick="location.reload()"><span class="nav-icon">🔄</span>Refresh</button>
+  <button onclick="support()"><span class="nav-icon">🎧</span>Support</button>
+  <button onclick="openModal('login')"><span class="nav-icon">🔐</span>Login</button>
 </nav>
 
-<footer>CPM MALIK OFFICIAL 🎀<br>Premium Services</footer>
+<div class="modal-bg" id="modalBg" onclick="if(event.target===this)closeModal()">
+  <div class="modal">
+    <button class="close" onclick="closeModal()">×</button>
+    <h2 id="modalTitle">Login</h2>
+    <p id="modalInfo">This demo does not store or verify passwords.</p>
+    <input id="fullName" placeholder="Your name" style="display:none">
+    <input id="email" type="email" placeholder="Email address">
+    <input id="password" type="password" placeholder="Password">
+    <button class="btn full" onclick="submitDemo()">Continue</button>
+  </div>
+</div>
+<div id="toast"></div>
 
 <script>
-const services = {
-  Account: [
-    "Gmail Change",
-    "Password Changed",
-    "ID Name Changed",
-    "Account Name Change"
-  ],
-  Economy: [
-    "50M Money",
-    "500k Coin",
-    "Custom Money",
-    "Custom Coins",
-    "Race Wins",
-    "Race Loss"
-  ],
-  Unlock: [
-    "W16 Engine Unlock",
-    "Smoke Unlock",
-    "Unlimited Fuel",
-    "Horn Unlock",
-    "Animation Unlock",
-    "Paid Wheels Unlock",
-    "Paid House Unlock",
-    "All Levels",
-    "No Damage"
-  ]
-};
+const OWNER='https://t.me/cpm_malik_official';
 
-function hidePages() {
-  ["homePage","servicesPage","plansPage","settingsPage"]
-    .forEach(id => document.getElementById(id).classList.add("hidden"));
-  document.querySelectorAll("nav button").forEach(b => b.classList.remove("active"));
+function support() {
+  window.open(OWNER,'_blank','noopener');
 }
-
-function goHome() {
-  hidePages();
-  document.getElementById("homePage").classList.remove("hidden");
-  document.getElementById("homeNav").classList.add("active");
-  window.scrollTo(0,0);
+function go(id) {
+  document.getElementById(id).scrollIntoView({behavior:'smooth'});
 }
-
-function showCategory(category) {
-  hidePages();
-  document.getElementById("servicesPage").classList.remove("hidden");
-  document.getElementById("categoryTitle").textContent = category + " Services";
-  const list = document.getElementById("serviceList");
-  list.replaceChildren();
-
-  services[category].forEach(service => {
-    const row = document.createElement("div");
-    row.className = "item";
-    const name = document.createElement("strong");
-    name.textContent = service;
-    const button = document.createElement("button");
-    button.textContent = "Select";
-    button.onclick = () => alert(
-      service + " selected. Actual service is not connected yet."
-    );
-    row.append(name,button);
-    list.appendChild(row);
-  });
-  window.scrollTo(0,0);
+function navGo(id,btn) {
+  go(id);
+  document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
 }
-
-function showPlans() {
-  hidePages();
-  document.getElementById("plansPage").classList.remove("hidden");
-  window.scrollTo(0,0);
+function toast(message) {
+  const box=document.getElementById('toast');
+  box.textContent=message;
+  box.style.display='block';
+  clearTimeout(window.toastTimer);
+  window.toastTimer=setTimeout(()=>box.style.display='none',3000);
 }
-
-function refreshPage() {
-  goHome();
-  window.location.reload();
+function order(service) {
+  const message='Assalam o Alaikum! I want to enquire about: '+service;
+  window.open(OWNER+'?text='+encodeURIComponent(message),'_blank','noopener');
 }
-
-function contactOwner() {
-  window.open("https://t.me/cpm_malik_official","_blank");
+function buy(plan,price) {
+  const message='Assalam o Alaikum! I want the '+plan+' plan for PKR '+price+'. Please confirm payment instructions.';
+  window.open(OWNER+'?text='+encodeURIComponent(message),'_blank','noopener');
 }
-
-function logoutDemo() {
-  alert("Login system has not been connected yet.");
+function openModal(mode) {
+  document.getElementById('modalBg').classList.add('show');
+  document.getElementById('modalTitle').textContent=mode==='register'?'Create Account':'Login';
+  document.getElementById('fullName').style.display=mode==='register'?'block':'none';
 }
-
-function paymentNotice() {
-  alert("JazzCash payment and subscription approval are not connected yet.");
+function closeModal() {
+  document.getElementById('modalBg').classList.remove('show');
 }
-
-function setupImage(inputId,imageId) {
-  document.getElementById(inputId).addEventListener("change", event => {
-    const file = event.target.files[0];
-    if (!file) return;
-
-    if (!file.type.startsWith("image/")) {
-      alert("Please select an image file.");
-      return;
-    }
-
-    const image = document.getElementById(imageId);
-    if (image.dataset.objectUrl) {
-      URL.revokeObjectURL(image.dataset.objectUrl);
-    }
-
-    const url = URL.createObjectURL(file);
-    image.dataset.objectUrl = url;
-    image.src = url;
-    image.style.display = "block";
-
-    if (imageId === "carPhoto") {
-      document.querySelector(".banner-content").style.background = "#170d27bb";
-    }
-  });
+function submitDemo() {
+  closeModal();
+  toast('Secure login is not connected yet. Contact the owner for assistance.');
+  setTimeout(support,700);
 }
-
-setupImage("avatarInput","avatar");
-setupImage("carInput","carPhoto");
 </script>
 </body>
 </html>
