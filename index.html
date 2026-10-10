@@ -3,103 +3,112 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#170d24">
+<meta name="theme-color" content="#171020">
 <title>CPM MALIK OFFICIAL 🎀</title>
 <style>
-:root {
-  --bg:#100919;
-  --panel:#211431;
-  --line:#503866;
-  --purple:#a855f7;
-  --muted:#c2b1d2;
-  --white:#fff;
+:root{
+  --bg:#120d19;
+  --card:#1e1728;
+  --border:#352841;
+  --purple:#a970f5;
+  --text:#f8f5fc;
+  --muted:#b9adc7;
 }
-* { box-sizing:border-box; }
-html { scroll-behavior:smooth; }
-body {
-  margin:0;
-  background:radial-gradient(circle at top,#32184a,var(--bg) 55%);
-  color:var(--white);
-  font-family:Arial,sans-serif;
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:20px}
+body{
+  margin:0;background:var(--bg);color:var(--text);
+  font-family:Arial,Helvetica,sans-serif;
 }
-button,input { font:inherit; }
-button { cursor:pointer; }
-.wrap { max-width:900px;margin:auto;padding:16px 13px 100px; }
-header {
-  display:flex;justify-content:space-between;
-  align-items:center;gap:10px;padding:8px 0 20px;
+button{font:inherit;cursor:pointer}
+button:active{transform:scale(.98)}
+.wrap{max-width:900px;margin:auto;padding:0 16px 100px}
+header{
+  display:flex;align-items:center;justify-content:space-between;
+  gap:10px;padding:20px 0;
 }
-.brand { font-size:16px;font-weight:900; }
-.brand small { display:block;color:var(--muted);font-size:11px;margin-top:5px; }
-.pill { background:var(--panel);border:1px solid var(--line);padding:8px;border-radius:20px;font-size:11px;color:#e9d5ff; }
-.hero {
-  padding:23px 18px;border:1px solid #68458a;border-radius:20px;
-  background:linear-gradient(135deg,#42245b,#1b1028);
-  box-shadow:0 10px 30px #0004;
+.brand{font-weight:900;font-size:16px}
+.brand small{display:block;font-size:11px;color:var(--muted);margin-top:5px;font-weight:400}
+.badge{font-size:11px;padding:8px 10px;border-radius:20px;background:#291d37;color:#d9baff}
+.hero{
+  padding:25px 20px;border:1px solid #49335f;border-radius:20px;
+  background:linear-gradient(140deg,#30203f,#20162c 65%,#191220);
 }
-.eyebrow { color:#d8b4fe;font-size:11px;letter-spacing:2px;font-weight:bold; }
-h1 { font-size:30px;line-height:1.2;margin:12px 0; }
-p { color:var(--muted);font-size:13px;line-height:1.6; }
-.actions { display:flex;gap:9px;flex-wrap:wrap;margin-top:16px; }
-.btn {
-  border:0;border-radius:11px;padding:12px 15px;
-  background:linear-gradient(135deg,#a855f7,#7134a4);
-  color:white;font-weight:bold;
+.hero-tag{font-size:11px;color:#d6b5ff;letter-spacing:1.5px;font-weight:bold}
+h1{font-size:30px;line-height:1.2;margin:13px 0}
+p{color:var(--muted);font-size:13px;line-height:1.7}
+.buttons{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.btn{
+  padding:12px 15px;border:1px solid transparent;border-radius:11px;
+  background:var(--purple);color:#160d20;font-weight:bold;
 }
-.btn.secondary { background:#251733;border:1px solid var(--line); }
-.section { margin-top:25px;scroll-margin-top:12px; }
-.heading { display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;gap:8px; }
-h2 { font-size:19px;margin:0; }
-.small { color:var(--muted);font-size:11px; }
-.grid { display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px; }
-.card { min-width:0;padding:14px;border:1px solid var(--line);border-radius:15px;background:linear-gradient(145deg,#251733,#180e23); }
-h3 { font-size:15px;margin:0 0 12px; }
-.service {
-  display:flex;justify-content:space-between;align-items:center;gap:6px;
-  background:#2b1b3b;border:1px solid #402951;border-radius:10px;
-  padding:10px;margin-top:8px;font-size:12px;
+.btn.alt{background:#2b2037;color:white;border-color:#48365b}
+.section{margin-top:28px}
+.section-title{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:13px}
+h2{font-size:19px;margin:0}
+.muted{font-size:11px;color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:15px;padding:15px;min-width:0}
+.card h3{font-size:15px;margin:0 0 7px}
+.card p{margin:5px 0 12px}
+.category-icon{font-size:23px;margin-bottom:12px}
+.open-btn{
+  width:100%;padding:10px;border-radius:9px;border:1px solid #4b375f;
+  color:#e5d3ff;background:#2b2038;font-size:12px;font-weight:bold;
 }
-.service span { overflow-wrap:anywhere; }
-.service button {
-  flex-shrink:0;background:#482663;color:#f0dfff;
-  border:1px solid #704a90;border-radius:7px;padding:7px;font-size:10px;
+.service-list{display:none;margin-top:12px}
+.service-list.open{display:block}
+.service{
+  display:flex;align-items:center;justify-content:space-between;gap:7px;
+  padding:10px 0;border-bottom:1px solid var(--border);font-size:12px;
 }
-.price { font-size:26px;font-weight:900;margin:14px 0 7px; }
-.feature { font-size:12px;color:#d8c7e8;line-height:1.6; }
-.full { width:100%;margin-top:14px; }
-.notice { padding:13px;border-radius:12px;border:1px solid #68458a;background:#211431;color:#dfcde9;font-size:12px;line-height:1.6;margin-top:13px; }
-nav {
-  position:fixed;left:0;right:0;bottom:0;z-index:10;
-  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:7px;
-  padding:10px; background:#170d24f5;border-top:1px solid #68458a;
-  box-shadow:0 -5px 22px #a855f722;
+.service:last-child{border-bottom:0}
+.service span{overflow-wrap:anywhere}
+.service button{
+  background:#352444;color:#e7d3ff;border:0;border-radius:7px;
+  padding:7px 8px;font-size:10px;white-space:nowrap;
 }
-nav button {
-  min-width:0;min-height:59px;padding:7px 2px;border-radius:13px;
-  color:var(--muted);background:linear-gradient(145deg,#302044,#241532);
-  border:1px solid var(--line);font-size:11px;font-weight:bold;
+.price{font-size:26px;font-weight:800;margin:12px 0 6px}
+.price small{font-size:11px;color:var(--muted);font-weight:400}
+.plan-note{font-size:12px;color:var(--muted);line-height:1.6}
+.plan .btn{width:100%;margin-top:15px}
+.plan.featured{border-color:#9d6cce}
+.feature-label{font-size:10px;color:#d9baff;margin-bottom:10px}
+.notice{
+  margin-top:13px;padding:13px;background:#20172b;
+  border:1px solid var(--border);border-radius:12px;
+  color:var(--muted);font-size:12px;line-height:1.7;
 }
-nav button.active {
-  color:white;background:linear-gradient(145deg,#a855f7,#6930a0);
-  border-color:#d8b4fe;box-shadow:0 0 15px #a855f755;
+.info-row{display:flex;gap:12px;align-items:center}
+.info-icon{font-size:23px}
+footer{text-align:center;color:var(--muted);font-size:11px;line-height:1.8;margin-top:30px}
+nav{
+  position:fixed;bottom:0;left:0;right:0;z-index:5;
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;
+  padding:9px 10px;background:#171020f5;border-top:1px solid var(--border);
 }
-.nav-icon { display:block;font-size:21px;margin-bottom:3px; }
-footer { text-align:center;color:var(--muted);font-size:11px;margin:25px 0; }
-#toast {
-  display:none;position:fixed;bottom:85px;left:50%;transform:translateX(-50%);
-  background:#302044;border:1px solid #8054a5;color:white;padding:12px;
-  border-radius:10px;font-size:12px;z-index:30;width:max-content;max-width:90%;
+nav button{
+  background:transparent;border:0;border-radius:10px;padding:8px 2px;
+  color:var(--muted);font-size:11px;font-weight:bold;
 }
-.modal-bg {
-  display:none;position:fixed;inset:0;background:#000b;z-index:20;
-  align-items:center;justify-content:center;padding:18px;
+nav button.active{background:#30213f;color:#e0c2ff}
+nav span{display:block;font-size:20px;margin-bottom:4px}
+#toast{
+  display:none;position:fixed;bottom:80px;left:50%;transform:translateX(-50%);
+  background:#30213f;border:1px solid #614779;color:white;
+  padding:12px 15px;border-radius:10px;font-size:12px;
+  width:max-content;max-width:90%;z-index:10;
 }
-.modal-bg.show { display:flex; }
-.modal { width:100%;max-width:400px;padding:20px;border:1px solid #68458a;border-radius:17px;background:#1b1028; }
-.modal input { width:100%;padding:12px;margin-top:10px;border-radius:9px;border:1px solid var(--line);background:#100919;color:white; }
-.close { float:right;background:none;color:white;border:0;font-size:22px; }
-@media(min-width:650px) { .grid { grid-template-columns:repeat(3,minmax(0,1fr)); } h1 { font-size:37px; } }
-@media(max-width:360px) { .brand { font-size:13px; } h1 { font-size:25px; } .grid { gap:7px; } .card { padding:10px; } nav button { font-size:10px; } }
+@media(min-width:650px){
+ .grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+ h1{font-size:37px}.hero{padding:32px}
+}
+@media(max-width:360px){
+ .wrap{padding-left:11px;padding-right:11px}
+ .brand{font-size:13px}.badge{font-size:9px}
+ .grid{gap:8px}.card{padding:11px}
+ h1{font-size:26px}
+}
 </style>
 </head>
 <body>
@@ -107,168 +116,166 @@ footer { text-align:center;color:var(--muted);font-size:11px;margin:25px 0; }
 <header>
   <div class="brand">
     𝐂𝐏𝐌 𝐌𝐀𝐋𝐈𝐊 𝐎𝐅𝐅𝐈𝐂𝐈𝐀𝐋 🎀
-    <small>Premium Car Parking Multiplayer Services</small>
+    <small>Car Parking Multiplayer Services</small>
   </div>
-  <span class="pill">✦ PREMIUM</span>
+  <span class="badge">PREMIUM</span>
 </header>
 
 <main>
 <section id="home" class="hero">
-  <div class="eyebrow">WELCOME TO CPM MALIK</div>
-  <h1>Your premium journey<br>starts here.</h1>
-  <p>Explore services, choose your subscription plan and contact the owner for assistance.</p>
-  <div class="actions">
-    <button class="btn" onclick="go('plans')">💎 View Plans</button>
-    <button class="btn secondary" onclick="support()">💭 Contact Owner</button>
+  <div class="hero-tag">WELCOME TO CPM MALIK</div>
+  <h1>Your game.<br>Your style.</h1>
+  <p>Explore our services and choose the plan that suits you. For orders and subscription help, contact the owner.</p>
+  <div class="buttons">
+    <button class="btn" onclick="go('services')">Explore Services</button>
+    <button class="btn alt" onclick="support()">Contact Owner</button>
   </div>
 </section>
 
-<section class="section" id="services">
-  <div class="heading"><h2>Services</h2><span class="small">Select to enquire</span></div>
+<section id="services" class="section">
+  <div class="section-title">
+    <h2>Our Services</h2><span class="muted">Choose a category</span>
+  </div>
   <div class="grid">
+
     <div class="card">
-      <h3>👤 Account</h3>
-      <div class="service"><span>Gmail Change</span><button onclick="order('Gmail Change')">Enquire</button></div>
-      <div class="service"><span>Password Changed</span><button onclick="order('Password Changed')">Enquire</button></div>
-      <div class="service"><span>ID Name Changed</span><button onclick="order('ID Name Changed')">Enquire</button></div>
-      <div class="service"><span>Account Name Change</span><button onclick="order('Account Name Change')">Enquire</button></div>
+      <div class="category-icon">👤</div>
+      <h3>Account</h3>
+      <p>Account-related services in one place.</p>
+      <button class="open-btn" onclick="toggle('accountList',this)">View Services ↓</button>
+      <div class="service-list" id="accountList">
+        <div class="service"><span>Gmail Change</span><button onclick="order('Gmail Change')">Select</button></div>
+        <div class="service"><span>Password Changed</span><button onclick="order('Password Changed')">Select</button></div>
+        <div class="service"><span>ID Name Changed</span><button onclick="order('ID Name Changed')">Select</button></div>
+        <div class="service"><span>Account Name Change</span><button onclick="order('Account Name Change')">Select</button></div>
+      </div>
     </div>
 
     <div class="card">
-      <h3>💰 Economy</h3>
-      <div class="service"><span>50M Money</span><button onclick="order('50M Money')">Enquire</button></div>
-      <div class="service"><span>500k Coin</span><button onclick="order('500k Coin')">Enquire</button></div>
-      <div class="service"><span>Custom Money</span><button onclick="order('Custom Money')">Enquire</button></div>
-      <div class="service"><span>Custom Coins</span><button onclick="order('Custom Coins')">Enquire</button></div>
-      <div class="service"><span>Race Wins</span><button onclick="order('Race Wins')">Enquire</button></div>
-      <div class="service"><span>Race Loss</span><button onclick="order('Race Loss')">Enquire</button></div>
+      <div class="category-icon">💰</div>
+      <h3>Economy</h3>
+      <p>Money, coins and race-related services.</p>
+      <button class="open-btn" onclick="toggle('economyList',this)">View Services ↓</button>
+      <div class="service-list" id="economyList">
+        <div class="service"><span>50M Money</span><button onclick="order('50M Money')">Select</button></div>
+        <div class="service"><span>500k Coin</span><button onclick="order('500k Coin')">Select</button></div>
+        <div class="service"><span>Custom Money</span><button onclick="order('Custom Money')">Select</button></div>
+        <div class="service"><span>Custom Coins</span><button onclick="order('Custom Coins')">Select</button></div>
+        <div class="service"><span>Race Wins</span><button onclick="order('Race Wins')">Select</button></div>
+        <div class="service"><span>Race Loss</span><button onclick="order('Race Loss')">Select</button></div>
+      </div>
     </div>
 
     <div class="card">
-      <h3>🔓 Unlock</h3>
-      <div class="service"><span>W16 Engine Unlock</span><button onclick="order('W16 Engine Unlock')">Enquire</button></div>
-      <div class="service"><span>Smoke Unlock</span><button onclick="order('Smoke Unlock')">Enquire</button></div>
-      <div class="service"><span>Unlimited Fuel</span><button onclick="order('Unlimited Fuel')">Enquire</button></div>
-      <div class="service"><span>Horn Unlock</span><button onclick="order('Horn Unlock')">Enquire</button></div>
-      <div class="service"><span>Animation Unlock</span><button onclick="order('Animation Unlock')">Enquire</button></div>
-      <div class="service"><span>Paid Wheels Unlock</span><button onclick="order('Paid Wheels Unlock')">Enquire</button></div>
-      <div class="service"><span>Paid House Unlock</span><button onclick="order('Paid House Unlock')">Enquire</button></div>
-      <div class="service"><span>All Levels</span><button onclick="order('All Levels')">Enquire</button></div>
-      <div class="service"><span>No Damage</span><button onclick="order('No Damage')">Enquire</button></div>
+      <div class="category-icon">🔓</div>
+      <h3>Unlock</h3>
+      <p>Browse available unlock services.</p>
+      <button class="open-btn" onclick="toggle('unlockList',this)">View Services ↓</button>
+      <div class="service-list" id="unlockList">
+        <div class="service"><span>W16 Engine Unlock</span><button onclick="order('W16 Engine Unlock')">Select</button></div>
+        <div class="service"><span>Smoke Unlock</span><button onclick="order('Smoke Unlock')">Select</button></div>
+        <div class="service"><span>Unlimited Fuel</span><button onclick="order('Unlimited Fuel')">Select</button></div>
+        <div class="service"><span>Horn Unlock</span><button onclick="order('Horn Unlock')">Select</button></div>
+        <div class="service"><span>Animation Unlock</span><button onclick="order('Animation Unlock')">Select</button></div>
+        <div class="service"><span>Paid Wheels Unlock</span><button onclick="order('Paid Wheels Unlock')">Select</button></div>
+        <div class="service"><span>Paid House Unlock</span><button onclick="order('Paid House Unlock')">Select</button></div>
+        <div class="service"><span>All Levels</span><button onclick="order('All Levels')">Select</button></div>
+        <div class="service"><span>No Damage</span><button onclick="order('No Damage')">Select</button></div>
+      </div>
     </div>
+
   </div>
 </section>
 
-<section class="section" id="plans">
-  <div class="heading"><h2>Subscription Plans</h2><span class="small">PKR</span></div>
+<section id="plans" class="section">
+  <div class="section-title"><h2>Subscription Plans</h2><span class="muted">Prices in PKR</span></div>
   <div class="grid">
-    <div class="card">
-      <h3>⚡ 1 Day</h3><div class="price">Rs. 300</div>
-      <div class="feature">✓ One-day subscription<br>✓ Owner approval required</div>
-      <button class="btn full" onclick="buy('1 Day','300')">Choose Plan</button>
+    <div class="card plan">
+      <h3>1 Day</h3><div class="price">300 <small>PKR</small></div>
+      <div class="plan-note">One-day plan<br>Access after owner approval</div>
+      <button class="btn" onclick="buy('1 Day','300')">Choose Plan</button>
     </div>
-    <div class="card">
-      <h3>💎 1 Week</h3><div class="price">Rs. 1,200</div>
-      <div class="feature">✓ Seven-day subscription<br>✓ Owner approval required</div>
-      <button class="btn full" onclick="buy('1 Week','1200')">Choose Plan</button>
+    <div class="card plan featured">
+      <div class="feature-label">POPULAR PLAN</div>
+      <h3>1 Week</h3><div class="price">1,200 <small>PKR</small></div>
+      <div class="plan-note">Seven-day plan<br>Access after owner approval</div>
+      <button class="btn" onclick="buy('1 Week','1200')">Choose Plan</button>
     </div>
-    <div class="card">
-      <h3>👑 1 Month</h3><div class="price">Rs. 2,000</div>
-      <div class="feature">✓ Thirty-day subscription<br>✓ Owner approval required</div>
-      <button class="btn full" onclick="buy('1 Month','2000')">Choose Plan</button>
+    <div class="card plan">
+      <h3>1 Month</h3><div class="price">2,000 <small>PKR</small></div>
+      <div class="plan-note">Thirty-day plan<br>Access after owner approval</div>
+      <button class="btn" onclick="buy('1 Month','2000')">Choose Plan</button>
     </div>
   </div>
   <div class="notice">
-    <b>JazzCash Manual Payment</b><br>
-    Contact the owner to confirm payment instructions. Send your payment proof to the owner for manual verification. Do not send money until payment details are confirmed directly by the owner.
+    <b>Payment information</b><br>
+    JazzCash payments are manually verified by the owner. Contact the owner to confirm the current payment instructions before sending money. Website activation is not automated yet.
   </div>
 </section>
 
-<section class="section" id="account">
-  <div class="heading"><h2>Account</h2><span class="small">Login / Register</span></div>
+<section id="account" class="section">
+  <div class="section-title"><h2>Your Account</h2></div>
   <div class="card">
-    <h3>🔐 Your Account</h3>
-    <p>Login and registration need a secure backend before real accounts or subscriptions can be created.</p>
-    <div class="actions">
-      <button class="btn" onclick="openModal('login')">Login</button>
-      <button class="btn secondary" onclick="openModal('register')">Register</button>
+    <div class="info-row"><span class="info-icon">🔐</span><div><h3 style="margin-bottom:4px">Login & Register</h3><span class="muted">Account access</span></div></div>
+    <p>Login and registration will be enabled after secure account services are connected.</p>
+    <div class="buttons">
+      <button class="btn" onclick="accountHelp()">Login</button>
+      <button class="btn alt" onclick="accountHelp()">Register</button>
     </div>
   </div>
 </section>
 
-<section class="section" id="settings">
-  <div class="heading"><h2>Settings & Support</h2></div>
+<section id="support" class="section">
   <div class="card">
-    <h3>🎧 CPM MALIK Support</h3>
-    <p>For orders, subscription questions and payment verification, contact the official owner.</p>
-    <button class="btn" onclick="support()">Contact Owner</button>
+    <div class="info-row"><span class="info-icon">🎧</span><div><h3 style="margin-bottom:4px">Need Help?</h3><span class="muted">CPM MALIK Official Support</span></div></div>
+    <p>Contact the owner for orders, plans and payment verification.</p>
+    <button class="btn" onclick="support()">Contact on Telegram</button>
   </div>
 </section>
-<footer>© 2026 CPM MALIK OFFICIAL 🎀<br>Premium Services</footer>
+
+<footer>© 2026 CPM MALIK OFFICIAL 🎀<br>Made for the CPM community.</footer>
 </main>
 </div>
 
 <nav>
-  <button class="active" onclick="navGo('home',this)"><span class="nav-icon">🏠</span>Home</button>
-  <button onclick="location.reload()"><span class="nav-icon">🔄</span>Refresh</button>
-  <button onclick="support()"><span class="nav-icon">🎧</span>Support</button>
-  <button onclick="openModal('login')"><span class="nav-icon">🔐</span>Login</button>
+  <button class="active" onclick="navGo('home',this)"><span>⌂</span>Home</button>
+  <button onclick="navGo('services',this)"><span>▦</span>Services</button>
+  <button onclick="navGo('plans',this)"><span>◇</span>Plans</button>
+  <button onclick="support()"><span>♡</span>Support</button>
 </nav>
 
-<div class="modal-bg" id="modalBg" onclick="if(event.target===this)closeModal()">
-  <div class="modal">
-    <button class="close" onclick="closeModal()">×</button>
-    <h2 id="modalTitle">Login</h2>
-    <p id="modalInfo">This demo does not store or verify passwords.</p>
-    <input id="fullName" placeholder="Your name" style="display:none">
-    <input id="email" type="email" placeholder="Email address">
-    <input id="password" type="password" placeholder="Password">
-    <button class="btn full" onclick="submitDemo()">Continue</button>
-  </div>
-</div>
 <div id="toast"></div>
 
 <script>
 const OWNER='https://t.me/cpm_malik_official';
 
-function support() {
-  window.open(OWNER,'_blank','noopener');
-}
-function go(id) {
+function go(id){
   document.getElementById(id).scrollIntoView({behavior:'smooth'});
 }
-function navGo(id,btn) {
+function navGo(id,button){
   go(id);
   document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));
-  btn.classList.add('active');
+  button.classList.add('active');
 }
-function toast(message) {
-  const box=document.getElementById('toast');
-  box.textContent=message;
-  box.style.display='block';
-  clearTimeout(window.toastTimer);
-  window.toastTimer=setTimeout(()=>box.style.display='none',3000);
+function toggle(id,button){
+  const list=document.getElementById(id);
+  const open=list.classList.toggle('open');
+  button.textContent=open?'Hide Services ↑':'View Services ↓';
 }
-function order(service) {
-  const message='Assalam o Alaikum! I want to enquire about: '+service;
-  window.open(OWNER+'?text='+encodeURIComponent(message),'_blank','noopener');
+function support(){
+  window.open(OWNER,'_blank','noopener');
 }
-function buy(plan,price) {
-  const message='Assalam o Alaikum! I want the '+plan+' plan for PKR '+price+'. Please confirm payment instructions.';
-  window.open(OWNER+'?text='+encodeURIComponent(message),'_blank','noopener');
+function order(service){
+  const msg='Assalam o Alaikum! I want to enquire about '+service+'.';
+  window.open(OWNER+'?text='+encodeURIComponent(msg),'_blank','noopener');
 }
-function openModal(mode) {
-  document.getElementById('modalBg').classList.add('show');
-  document.getElementById('modalTitle').textContent=mode==='register'?'Create Account':'Login';
-  document.getElementById('fullName').style.display=mode==='register'?'block':'none';
+function buy(plan,price){
+  const msg='Assalam o Alaikum! I want the '+plan+' subscription (PKR '+price+'). Please confirm payment instructions.';
+  window.open(OWNER+'?text='+encodeURIComponent(msg),'_blank','noopener');
 }
-function closeModal() {
-  document.getElementById('modalBg').classList.remove('show');
-}
-function submitDemo() {
-  closeModal();
-  toast('Secure login is not connected yet. Contact the owner for assistance.');
-  setTimeout(support,700);
+function accountHelp(){
+  const msg='Assalam o Alaikum! I need help with website account registration/login.';
+  window.open(OWNER+'?text='+encodeURIComponent(msg),'_blank','noopener');
 }
 </script>
 </body>
